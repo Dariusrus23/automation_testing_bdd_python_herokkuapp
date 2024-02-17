@@ -19,4 +19,4 @@ class BasePage(Driver):
         return wait.until(EC.presence_of_element_located(locator))
 
     def get_element_text(self, locator):
-        return self.wait_for_element(locator, 6).text
+        return self.wait_for_element(locator, 8).text

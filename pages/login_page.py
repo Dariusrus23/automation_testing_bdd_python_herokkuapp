@@ -27,7 +27,7 @@ class LoginPage(BasePage):
         self.click(self.LOGIN_BUTTON)
 
     def is_message_displayed(self):
-        return self.wait_for_element(self.FLASH_CONTAINER, 6).is_displayed()
+        return self.wait_for_element(self.FLASH_CONTAINER, 8).is_displayed()
 
     def get_message_test(self):
         return self.get_element_text(self.FLASH_CONTAINER)

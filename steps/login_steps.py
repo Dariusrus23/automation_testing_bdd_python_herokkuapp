@@ -22,6 +22,8 @@ def step_impl(context):
 
 @then('The message is "{message}"')
 def step_impl(context, message):
-    assert message in context.login_page.get_message_text(), 'Message is not the same'
+    assert message in context.login_page.get_message_text()
+
+
 
 
