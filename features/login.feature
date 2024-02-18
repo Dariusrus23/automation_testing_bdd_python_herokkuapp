@@ -6,7 +6,7 @@ Feature: tests for login page
     When I insert a password "Darius!1"
     When I click on the login button
     Then The banner is displayed
-   # Then The message is "Your username is invalid!"
+    Then The message is "Your username is invalid!"
 
   @LoginTrue
   Scenario: This is a positive scenario
@@ -15,5 +15,4 @@ Feature: tests for login page
     When I insert a password1 "SuperSecretPassword!"
     When I click on the login button1
     Then The banner is displayed1
-    #Then The displayed message is "You logged into a secure area!"
-
+    Then The login is succes "You logged into a secure area!"
