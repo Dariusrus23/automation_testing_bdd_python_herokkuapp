@@ -35,4 +35,7 @@ class LoginPage(BasePage):
         text = self.get_element_text(self.FLASH_CONTAINER)
         assert expected_message in text, f'Expected message:{expected_message},actual message: {text}'
 
+    def rezult_message(self, expected_message):
+        text = self.get_message_test(self.FLASH_CONTAINER)
+        assert str(expected_message) in str(text), f'Expected message:{expected_message}, actual message: {text}'
 

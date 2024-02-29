@@ -25,4 +25,3 @@ def step_impl(context, message):
     context.login_page.get_message_test(message)
 
 
-
