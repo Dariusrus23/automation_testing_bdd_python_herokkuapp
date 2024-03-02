@@ -19,3 +19,6 @@ class BasePage(Browser):
 
     def get_element_text(self, locator):
         return self.wait_for_element(locator, 8).text.replace("×","").replace("\n","")
+
+    def get_element_text_sec(self, locator):
+        return self.wait_for_element(locator, 6).text

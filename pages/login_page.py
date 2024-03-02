@@ -31,7 +31,7 @@ class LoginPage(BasePage):
     def is_message_displayed(self):
         return self.wait_for_element(self.FLASH_CONTAINER, 8).is_displayed()
 
-    def get_message_test(self, expected_message):
+    def get_message_text(self, expected_message):
         text = self.get_element_text(self.FLASH_CONTAINER)
         assert expected_message in text, f'Expected message:{expected_message},actual message: {text}'
 

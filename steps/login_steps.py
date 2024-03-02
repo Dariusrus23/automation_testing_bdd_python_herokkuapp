@@ -22,7 +22,7 @@ def step_impl(context):
 
 @then('The message is "{message}"')
 def step_impl(context, message):
-    context.login_page.get_message_test(message)
+    context.login_page.get_message_text(message)
 
 
 
