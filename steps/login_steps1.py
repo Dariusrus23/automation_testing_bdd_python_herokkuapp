@@ -1,6 +1,6 @@
 from behave import *
 
-@given('I on the login page1')
+@given('I on the login page')
 def step_impl(context):
     context.login_page.navigate_to_page()
 
@@ -8,7 +8,7 @@ def step_impl(context):
 def step_impl(context, username):
     context.login_page.set_email(username)
 
-@when('I insert a password1 "{password}"')
+@when('I insert a password2 "{password}"')
 def step_impl(context, password):
     context.login_page.set_password(password)
 
@@ -20,8 +20,15 @@ def step_impl(context):
 def step_impl(context):
     assert context.login_page.is_message_displayed(), 'The succes login'
 
-@then('The login is succes "{message}"')
-def step_impl(context, message):
-    context.login_page.get_message_text(message)
+@then('The message is displayd "You logged into a secure area!"')
+def step_impl(context):
+    try:
+        text = context.driver.find_element_by_xpath("//div[@class='button secondary radius']")
+    except:
+        context.drive.close()
+        assert False, "test fail"
+    if text=="Logout":
+        context.drive.close()
+        assert True, "test passed"
 
 

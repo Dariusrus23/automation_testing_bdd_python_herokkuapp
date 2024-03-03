@@ -18,5 +18,6 @@ def step_impl(context):
 
 @then('The product "{itemtitle}"')
 def step_impl(context, itemtitle):
-    context.search_product_page.get_title_text()
+    context.search_product_page.get_title_text(itemtitle)
+
 
