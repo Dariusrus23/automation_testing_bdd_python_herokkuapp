@@ -8,3 +8,4 @@ class Browser:
 
     def close(self):
         self.driver.quit()
+

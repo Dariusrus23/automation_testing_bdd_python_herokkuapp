@@ -22,3 +22,8 @@ class BasePage(Browser):
 
     def get_element_text_sec(self, locator):
         return self.wait_for_element(locator, 6).text
+
+    def is_element_displayed(self,locator):
+        self.wait_for_element(locator,10)
+        element = self.driver.find_element(*locator)
+        assert element.is_displayed() == True, f"Error: Expected: True, Actual: {element.is_displayed()}"

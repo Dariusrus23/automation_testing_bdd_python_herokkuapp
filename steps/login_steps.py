@@ -18,15 +18,15 @@ def step_impl(context):
 
 @then('The banner is displayed')
 def step_impl(context):
-    assert context.login_page.is_message_displayed(), 'Banner is not displayed'
+    context.login_page.banner_is_displayed()
 
 @then('The message is "{message}"')
 def step_impl(context, message):
-    context.login_page.get_message_text(message)
+    context.login_page.check_message_text(message)
 
-
-    #context.login_page.get_message_text(message)
-
+@then('The message is displayed')
+def step_impl(context):
+    context.login_page.message_is_displayed()
 
 
 

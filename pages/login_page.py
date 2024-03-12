@@ -8,11 +8,11 @@ from pages.base_page import BasePage
 class LoginPage(BasePage):
 
     LOGIN_PAGE_URL = "https://the-internet.herokuapp.com/login"
-
     EMAIL_INPUT = (By.ID, "username")
     PASSWORD_INPUT = (By.ID, "password")
     LOGIN_BUTTON = (By.CLASS_NAME, "fa-sign-in")
-    FLASH_CONTAINER = (By.ID, "flash-messages")
+    MESSAGE = (By.ID, "flash")
+    BANNER = (By.ID, "flash-messages")
 
     def navigate_to_page(self):
         self.driver.get(self.LOGIN_PAGE_URL)
@@ -28,17 +28,13 @@ class LoginPage(BasePage):
     def click_login(self):
         self.click(self.LOGIN_BUTTON)
 
-    def is_message_displayed(self):
-        return self.wait_for_element(self.FLASH_CONTAINER, 8).is_displayed()
+    def banner_is_displayed(self):
+        self.is_element_displayed(self.BANNER)
 
-    def get_message_text(self, expected_message):
-        text = self.get_element_text(self.FLASH_CONTAINER)
-        assert expected_message in text, f'Expected message:{expected_message},actual message: {text}'
+    def message_is_displayed(self):
+        self.is_element_displayed(self.MESSAGE)
 
-    def rezult_message(self, expected_message):
-        text = self.get_message_test(self.FLASH_CONTAINER)
-        assert str(expected_message) in str(text), f'Expected message:{expected_message}, actual message: {text}'
-
-    def get_message_banner(self):
-        return self.get_element_text(self.FLASH_CONTAINER)
+    def check_message_text(self, expected_message):
+        text = self.get_element_text(self.MESSAGE)
+        assert expected_message in text, f'Expected message:{expected_message}, actual message{text}'
 
